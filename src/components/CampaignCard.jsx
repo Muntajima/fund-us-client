@@ -1,10 +1,10 @@
 
 
-const CampaignCard = ({campaign}) => {
+const CampaignCard = ({camp}) => {
 
     //const { _id, title, type, amount, deadline, description, image, name, email } = campaign;
-   const { image, title, description } = campaign || {};
-    console.log(title);
+   const { image, title, description } = camp || {};
+    //console.log(title);
     return (
             <div className="card-compact bg-base-100 w-96">
                 <figure>

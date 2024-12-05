@@ -1,8 +1,14 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Swal from 'sweetalert2'
+import { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddNewCampaign = () => {
+    const {users} = useContext(AuthContext);
+    const navigate = useNavigate();
+    console.log(users)
 
     const handleAddCampaign = event => {
         event.preventDefault();
@@ -48,7 +54,10 @@ const AddNewCampaign = () => {
             <h2 className='font-bold text-2xl text-center'>Add new campaign for your project</h2>
             <p className='text-center mt-4 mb-12'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus voluptas aut ex eaque dolor delectus eveniet sit, magnam accusamus est.</p>
 
-            <form onSubmit={handleAddCampaign}>
+            <div>
+                {
+                    users ? <div>
+                        <form onSubmit={handleAddCampaign}>
                 <div className='md:flex mb-8'>
                     <div className='form-control md:w-1/2'>
                         <label className='label'>
@@ -129,11 +138,13 @@ const AddNewCampaign = () => {
                 <div className='md:flex mb-8'>
                     <div className='form-control md:w-1/2'>
                         <label className='label'>
-                            <span className='label-text'>Nama</span>
+                            <span className='label-text'>Name</span>
                         </label>
                         <label className='input-group'>
                             <input type="text"
-                                name="name" placeholder='your name' className='input input-bordered w-full' id="" />
+                                name="name" placeholder='your name' 
+                                defaultValue={users.displayName}
+                                className='input input-bordered w-full' readOnly />
                         </label>
 
                     </div>
@@ -143,7 +154,10 @@ const AddNewCampaign = () => {
                         </label>
                         <label className='input-group'>
                             <input type="text"
-                                name="email" placeholder='email' className='input input-bordered w-full' />
+                                name="email" placeholder='email' 
+                                defaultValue={users.email}
+                                className='input input-bordered w-full'
+                                readOnly />
                         </label>
                     </div>
                 </div>
@@ -151,6 +165,12 @@ const AddNewCampaign = () => {
                     <input type="submit" value="Add Campaign" className='btn btn-block bg-gray-700 text-white' />
                 </div>
             </form>
+                    </div> : 
+                    <div>{navigate('/login')}</div>
+                }
+            </div>
+
+            
 
             <div className='mt-12'><Footer /></div>
         </div>

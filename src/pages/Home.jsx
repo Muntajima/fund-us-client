@@ -12,7 +12,7 @@ const Home = () => {
             <header><Banner/></header>
             <main>
                 <section><AllCampaign/></section>
-                <section><CampaignCard/></section>
+                {/* <section><CampaignCard/></section> */}
             </main>
             <footer className='mt-12'><Footer/></footer>
         </div>
