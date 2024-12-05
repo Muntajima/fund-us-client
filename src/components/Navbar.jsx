@@ -6,7 +6,7 @@ const Navbar = () => {
     const links = <>
         <div className='text-lg font-semibold space-x-4'>
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/all-campaign'>All Campaign</NavLink>
+            <NavLink to='/all-campaign-card'>All Campaign</NavLink>
             <NavLink to='/add-new-campaign'> Add New Campaign</NavLink>
         </div>
     </>
