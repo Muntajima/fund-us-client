@@ -6,12 +6,15 @@ const Navbar = () => {
   const { users, logOut } = useContext(AuthContext);
   
   const links = <>
-    <div className='text-lg font-semibold space-x-4'>
+    <div className='text-sm space-x-2'>
       <NavLink to='/'>Home</NavLink>
       <NavLink to='/all-campaign-card'>All Campaign</NavLink>
       <NavLink to='/add-new-campaign'> Add New Campaign</NavLink>
       {
         users && <NavLink to='/my-campaign'>My Campaign</NavLink>
+      }
+      {
+        users && <NavLink to='/my-donation'>My Donation</NavLink>
       }
     </div>
     
@@ -46,7 +49,7 @@ const Navbar = () => {
         <a className="btn btn-ghost text-2xl font-bold">FundUs</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal">
           {links}
         </ul>
       </div>

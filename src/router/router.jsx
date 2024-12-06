@@ -7,6 +7,7 @@ import AllCamp from "../components/AllCamp";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import MyCampaign from "../components/MyCampaign";
+import MyDonation from "../components/MyDonation";
 
 
 const router = createBrowserRouter([
@@ -43,11 +44,11 @@ const router = createBrowserRouter([
     element: <MyCampaign/>,
     loader: () => fetch('http://localhost:5000/campaign')
   },
-  // {
-  //   path: 'my-campaign/:id',
-  //   element: <MyCampaign/>,
-  //   loader: ({params}) => fetch('http://localhost:5000/campaign')
-  // }
+  {
+    path: 'my-donation',
+    element: <MyDonation/>,
+    loader: () => fetch('http://localhost:5000/campaign')
+  }
 
 ]);
 
