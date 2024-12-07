@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import LottieAnimation from './LottieAnimation';
+import Error from './Error';
 
 const Register = () => {
     const {createUser, updateUserProfile, setUsers, users} = useContext(AuthContext);
+    const [error, setError] = useState(true);
+    const navigate = useNavigate();
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -16,6 +21,17 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        if(!passwordRegex.test(password)){
+            setError(false);
+            Swal.fire({
+                title: 'Ooops!',
+                text: 'Must have atleast one Uppercase, one lowercase and minimum length 6 character',
+                icon: 'warning',
+                confirmButtonText: 'Thanks',
+            })
+            return;
+        }
         
         //console.log(newUser)
 
@@ -23,14 +39,14 @@ const Register = () => {
         .then(result =>{
             const user = (result.user);
             setUsers(user);
-            if(users){
-                <>
-                    <LottieAnimation/>
-                    <Navigate to='/'></Navigate>
-                </>
-            }
             
             updateUserProfile({displayName: name, photoURL: photo})
+            .then(() =>{
+                navigate('/')
+            })
+            .catch(err =>{
+                <Error/>
+            } )
             const createdAt = result?.user?.metadata?.creationTime;
             const newUser = {name, email, photo, password,createdAt};
 
@@ -50,7 +66,7 @@ const Register = () => {
                     text: 'Successfully registered',
                     icon: 'success',
                     confirmButtonText: 'Cool',
-                })
+                });
                 
             }
             

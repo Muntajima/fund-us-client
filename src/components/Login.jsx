@@ -7,7 +7,7 @@ import LottieAnimation from './LottieAnimation';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {userLogin, setUsers} = useContext(AuthContext);
+    const {userLogin, setUsers, users} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const handleLogin = (e) => {
@@ -27,6 +27,10 @@ const Login = () => {
                 icon: "success"
               });
             navigate(location?.state ? location.state : '/my-campaign')
+
+            if(users){
+                console.log(users)
+            }
             
            
         })

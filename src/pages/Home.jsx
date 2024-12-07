@@ -13,7 +13,7 @@ const Home = () => {
             <nav><Navbar/></nav>
             <header><Banner/></header>
             <main>
-                <section><Animation/></section>
+                <section></section>
                 <section><AllCampaign/></section>
             </main>
             <footer className='mt-12'><Footer/></footer>

@@ -13,7 +13,6 @@ import Detail from "../components/Detail";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../components/Error";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,8 +64,8 @@ const router = createBrowserRouter([
       <Detail/>
     </PrivateRoute>,
     loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
-  }
-
+  },
+ 
 ]);
 
 export default router;

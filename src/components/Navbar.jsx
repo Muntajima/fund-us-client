@@ -64,10 +64,19 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="text-black pr-2">
-          {users && users?.email}
-
+        { users &&
+          <div className="text-black pr-2 relative group">
+          <img 
+          src={users?.photoURL} 
+          className='w-10 h-10 rounded-full cursor-pointer'
+          title={users?.displayName || "no display name"}
+          />
+          <div className="absolute bottom-1 right-16 bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                                {users?.displayName || "No Display Name"}
+                            </div>
+          
         </div>
+        }
         <div>
           {
             users && users?.email ? (
