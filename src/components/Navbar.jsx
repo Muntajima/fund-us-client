@@ -1,10 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
   const { users, logOut } = useContext(AuthContext);
   
+  const [theme, setTheme] = useState('light')
+  const handletheme = () =>{
+      
+      setTheme(theme ==='light' ? 'dark' : 'light')
+  }
+
+  useEffect(() =>{
+      document.querySelector('html').setAttribute('data-theme', theme)
+  }, [theme])
+
   const links = <>
     <div className='text-sm space-x-2'>
       <NavLink to='/'>Home</NavLink>
@@ -17,9 +27,9 @@ const Navbar = () => {
         users && <NavLink to='/my-donation'>My Donation</NavLink>
       }
     </div>
-    
+
   </>
-  
+
 
   return (
 
@@ -56,25 +66,35 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="text-black pr-2">
           {users && users?.email}
-          
+
         </div>
         <div>
           {
             users && users?.email ? (
               <button onClick={logOut} className='btn btn-outline'>Logout</button>
             ) : (
-              <NavLink
+              <>
+                <NavLink
                 to='/login'
-                className="btn btn-outline"
+                className="btn btn-outline mr-2"
               >Login</NavLink>
+              <NavLink
+                to='/register'
+                className="btn btn-outline"
+              >Ragister</NavLink>
+              </>
+              
             )
           }
 
 
         </div>
+        <div>
+          <input onClick={handletheme} type="checkbox" className="toggle ml-4" defaultChecked />
+        </div>
       </div>
-      </div>
-      );
+    </div>
+  );
 };
 
-      export default Navbar;
+export default Navbar;

@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Swal from "sweetalert2";
+import LottieAnimation from "./LottieAnimation";
 
 
 const MyCampaign = () => {
     const { users } = useContext(AuthContext);
     const campaigns = useLoaderData();
-    const [camps, setCamps] = useState([]);
+    const [camps, setCamps] = useState([campaigns]);
    
     const { _id, title, type, amount, deadline, description, image, name, email } = campaigns || {};
 
@@ -38,6 +39,8 @@ const MyCampaign = () => {
                         text: "Your campaign has been deleted.",
                         icon: "success"
                       });
+                      const remaining = camps.filter(camp => camp._id !== _id);
+                      setCamps(remaining);
                 }
               })
             }
@@ -76,8 +79,8 @@ const MyCampaign = () => {
                             <td className="border border-gray-300 px-4 py-2">{campaign.amount}</td>
                             <td className="border border-gray-300">
                                 <div className="flex flex-col">
-                                <button
-                                className="btn btn-ghost">Update</button>
+                                <Link to={`/update/${campaign._id}`}
+                                className="btn btn-ghost">Update</Link>
                                 <button 
                                 onClick={() => handleDelete(campaign._id)}
                                 className="btn btn-ghost">Delete</button>

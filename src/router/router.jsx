@@ -8,12 +8,17 @@ import Register from "../components/Register";
 import Login from "../components/Login";
 import MyCampaign from "../components/MyCampaign";
 import MyDonation from "../components/MyDonation";
+import Update from "../components/Update";
+import Detail from "../components/Detail";
+import PrivateRoute from "./PrivateRoute";
+import Error from "../components/Error";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error/>,
     loader: () => fetch('http://localhost:5000/campaign'),
     
   },
@@ -48,6 +53,18 @@ const router = createBrowserRouter([
     path: 'my-donation',
     element: <MyDonation/>,
     loader: () => fetch('http://localhost:5000/campaign')
+  },
+  {
+    path: 'update/:id',
+    element: <Update/>,
+    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+  },
+  {
+    path: 'detail/:id',
+    element: <PrivateRoute>
+      <Detail/>
+    </PrivateRoute>,
+    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
   }
 
 ]);

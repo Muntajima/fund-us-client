@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import { auth } from '../firebase.init';
+import LottieAnimation from '../components/LottieAnimation';
 
 export const AuthContext = createContext(null);
 
@@ -15,12 +16,13 @@ const AuthProvider = ({children}) => {
     }
 
     const userLogin = (email, password) =>{
-        setLoading(true);
+        setLoading(true); 
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () =>{
         setLoading(true);
+    
         return signOut(auth);
     }
 

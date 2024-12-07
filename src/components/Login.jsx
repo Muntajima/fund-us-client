@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import LottieAnimation from './LottieAnimation';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {userLogin, setUsers} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -17,10 +21,21 @@ const Login = () => {
             console.log(result.user);
             const user = result.user;
             setUsers(user)
+            Swal.fire({
+                title: "Sweet!",
+                text: "You are our authorized user",
+                icon: "success"
+              });
+            navigate(location?.state ? location.state : '/my-campaign')
+            
            
         })
         .catch(error =>{
-            console.log('ERROR', error);
+            Swal.fire({
+                title: "Ooops!",
+                text: "Invalid email and password.",
+                icon: "error"
+              });
         })
     }
     return (
@@ -57,7 +72,7 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button to='/' className="btn btn-neutral">Login</button>
+                                    <button className="btn btn-neutral">Login</button>
                                 </div>
                             </form>
                             <p className="text-center font-semibold">

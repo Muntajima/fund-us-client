@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const AllCamp = ({camp}) => {
     
@@ -22,7 +23,9 @@ const AllCamp = ({camp}) => {
                 <h3>Deadline: {deadline}</h3>
                     <p>{description}</p>
                     <div className="card-actions justify-end">
+                        <Link to={`/detail/${_id}`}>
                         <button className="btn btn-primary">Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>

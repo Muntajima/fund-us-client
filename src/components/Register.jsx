@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import LottieAnimation from './LottieAnimation';
 
 const Register = () => {
-    const {createUser, updateUserProfile, setUsers} = useContext(AuthContext);
+    const {createUser, updateUserProfile, setUsers, users} = useContext(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -22,6 +23,12 @@ const Register = () => {
         .then(result =>{
             const user = (result.user);
             setUsers(user);
+            if(users){
+                <>
+                    <LottieAnimation/>
+                    <Navigate to='/'></Navigate>
+                </>
+            }
             
             updateUserProfile({displayName: name, photoURL: photo})
             const createdAt = result?.user?.metadata?.creationTime;
@@ -44,9 +51,10 @@ const Register = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool',
                 })
+                
             }
-            console.log("new user: ", data);
-            console.log(data.uid)
+            
+            
         })
             
         })

@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 import AllCampaign from '../components/AllCampaign';
 import CampaignCard from '../components/CampaignCard';
+import LottieAnimation from '../components/LottieAnimation';
+import Animation from '../components/Animation';
 
 const Home = () => {
     return (
@@ -11,8 +13,8 @@ const Home = () => {
             <nav><Navbar/></nav>
             <header><Banner/></header>
             <main>
+                <section><Animation/></section>
                 <section><AllCampaign/></section>
-                {/* <section><CampaignCard/></section> */}
             </main>
             <footer className='mt-12'><Footer/></footer>
         </div>
