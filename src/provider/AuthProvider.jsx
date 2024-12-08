@@ -1,10 +1,12 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import { auth } from '../firebase.init';
 import LottieAnimation from '../components/LottieAnimation';
 
+
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
     const [users, setUsers] = useState(null);
@@ -30,6 +32,10 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser, updatedData);
     }
 
+    const handleGoogleSignup = () =>{
+         signInWithPopup(auth, googleProvider);
+    }
+
     const authInfo = {
         users,
         setUsers,
@@ -37,7 +43,8 @@ const AuthProvider = ({children}) => {
         createUser,
         userLogin,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        handleGoogleSignup
     }
 
     useEffect(() =>{

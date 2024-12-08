@@ -8,7 +8,7 @@ import LottieAnimation from './LottieAnimation';
 import Error from './Error';
 
 const Register = () => {
-    const {createUser, updateUserProfile, setUsers, users} = useContext(AuthContext);
+    const {createUser, updateUserProfile, setUsers, users, handleGoogleSignup} = useContext(AuthContext);
     const [error, setError] = useState(true);
     const navigate = useNavigate();
 
@@ -142,7 +142,7 @@ const Register = () => {
                                     Login
                                 </Link>
                             </p>
-                            <Link  className='text-blue-600 underline text-center mb-8 font-semibold'> Google only</Link>
+                            <Link onClick={handleGoogleSignup}  className='btn btn-outline bg-rose-700 text-white w-36 mx-auto my-8 font-semibold'> Google only</Link>
                         </div>
                     </div>
                 </div>

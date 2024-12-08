@@ -7,7 +7,7 @@ import LottieAnimation from './LottieAnimation';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {userLogin, setUsers, users} = useContext(AuthContext);
+    const {userLogin, setUsers, users, handleGoogleSignup} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const handleLogin = (e) => {
@@ -85,7 +85,7 @@ const Login = () => {
                                     Register
                                 </Link>
                             </p>
-                            <Link className='text-blue-600 underline text-center mb-8 font-semibold'> Google only</Link>
+                            <Link onClick={handleGoogleSignup} className='btn btn-outline bg-rose-700 text-white w-36 mx-auto my-8 font-semibold'> Google only</Link>
                         </div>
                     </div>
                 </div>

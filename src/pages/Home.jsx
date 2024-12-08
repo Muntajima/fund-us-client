@@ -3,9 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 import AllCampaign from '../components/AllCampaign';
-import CampaignCard from '../components/CampaignCard';
-import LottieAnimation from '../components/LottieAnimation';
-import Animation from '../components/Animation';
+import DeadlineDonate from '../components/DeadlineDonate';
+import OldAgeProject from '../components/OldAgeProject';
 
 const Home = () => {
     return (
@@ -13,8 +12,9 @@ const Home = () => {
             <nav><Navbar/></nav>
             <header><Banner/></header>
             <main>
-                <section></section>
                 <section><AllCampaign/></section>
+                <section className='my-8'><DeadlineDonate/></section>
+                <section className='my-8'><OldAgeProject/></section>
             </main>
             <footer className='mt-12'><Footer/></footer>
         </div>

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import logo from "../assets/fundUs-logo.jpg"
 
 const Navbar = () => {
   const { users, logOut } = useContext(AuthContext);
@@ -17,14 +18,14 @@ const Navbar = () => {
 
   const links = <>
     <div className='text-sm space-x-2'>
-      <NavLink to='/'>Home</NavLink>
-      <NavLink to='/all-campaign-card'>All Campaign</NavLink>
-      <NavLink to='/add-new-campaign'> Add New Campaign</NavLink>
+      <NavLink to='/' className='hover:underline'>Home</NavLink>
+      <NavLink to='/all-campaign-card' className='hover:underline'>All Campaign</NavLink>
+      <NavLink to='/add-new-campaign' className='hover:underline'> Add New Campaign</NavLink>
       {
-        users && <NavLink to='/my-campaign'>My Campaign</NavLink>
+        users && <NavLink to='/my-campaign' className='hover:underline'>My Campaign</NavLink>
       }
       {
-        users && <NavLink to='/my-donation'>My Donation</NavLink>
+        users && <NavLink to='/my-donation'className='hover:underline'>My Donation</NavLink>
       }
     </div>
 
@@ -56,6 +57,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+        <img src={logo} className='w-[60px]' />
         <a className="btn btn-ghost text-2xl font-bold">FundUs</a>
       </div>
       <div className="navbar-center hidden lg:flex">
