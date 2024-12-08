@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-import logo from "../assets/fundUs-logo.jpg"
+import fundUsLogo from "../assets/fundUs-logo.jpg"
 
 const Navbar = () => {
   const { users, logOut } = useContext(AuthContext);
@@ -57,7 +57,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img src={logo} className='w-[60px]' />
+        <img src={fundUsLogo} className='w-[60px]' />
         <a className="btn btn-ghost text-2xl font-bold">FundUs</a>
       </div>
       <div className="navbar-center hidden lg:flex">
