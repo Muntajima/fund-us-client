@@ -51,7 +51,7 @@ const Register = () => {
             const newUser = {name, email, photo, password,createdAt};
 
             //send user to db
-        fetch('http://localhost:5000/users', {
+        fetch('https://crowd-fund-delta-nine.vercel.app/users', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

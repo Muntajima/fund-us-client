@@ -18,13 +18,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
     errorElement: <Error/>,
-    loader: () => fetch('http://localhost:5000/campaign'),
+    loader: () => fetch('https://crowd-fund-delta-nine.vercel.app/campaign'),
     
   },
   {
     path: 'all-campaign',
     element: <AllCampaign />,
-    loader: () => fetch('http://localhost:5000/campaign'),
+    loader: () => fetch('https://crowd-fund-delta-nine.vercel.app/campaign'),
   },
   {
     path: 'add-new-campaign',
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   {
     path: 'all-campaign-card',
     element: <AllCampaignCard />,
-    loader: () => fetch('http://localhost:5000/campaign'),
+    loader: () => fetch('https://crowd-fund-delta-nine.vercel.app/campaign'),
   },
   {
     path: 'register',
@@ -46,24 +46,24 @@ const router = createBrowserRouter([
   {
     path: 'my-campaign',
     element: <MyCampaign/>,
-    loader: () => fetch('http://localhost:5000/campaign')
+    loader: () => fetch('https://crowd-fund-delta-nine.vercel.app/campaign')
   },
   {
     path: 'my-donation',
     element: <MyDonation/>,
-    loader: () => fetch('http://localhost:5000/campaign')
+    loader: () => fetch('https://crowd-fund-delta-nine.vercel.app/campaign')
   },
   {
     path: 'update/:id',
     element: <Update/>,
-    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+    loader: ({params}) => fetch(`https://crowd-fund-delta-nine.vercel.app/campaign/${params.id}`)
   },
   {
     path: 'detail/:id',
     element: <PrivateRoute>
       <Detail/>
     </PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+    loader: ({params}) => fetch(`https://crowd-fund-delta-nine.vercel.app/campaign/${params.id}`)
   },
  
 ]);

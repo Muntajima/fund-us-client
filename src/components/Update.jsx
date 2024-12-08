@@ -32,7 +32,7 @@ const Update = () => {
         console.log(updatedCampaign);
 
         //send data to the server
-        fetch(`http://localhost:5000/campaign/${_id}`, {
+        fetch(`https://crowd-fund-delta-nine.vercel.app/campaign/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

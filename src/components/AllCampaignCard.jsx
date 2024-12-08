@@ -6,9 +6,7 @@ import AllCamp from './AllCamp';
 const AllCampaignCard = () => {
 
     const camps = useLoaderData();
-    //const []
-   // const { _id, title, type, amount, deadline, description, image, name, email } = camp || {};
-    //console.log(camp)
+   
     return (
         <>
             <div><Navbar /></div>

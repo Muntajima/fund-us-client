@@ -4,11 +4,15 @@ import Swal from 'sweetalert2'
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Navigate, useNavigate } from 'react-router-dom';
+import LottieAnimation from './LottieAnimation';
 
 const AddNewCampaign = () => {
-    const {users, loading} = useContext(AuthContext);
+    const {users} = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(users)
+    if (!users) {
+        return <Navigate to="/login" />;
+      }
+      
 
     const handleAddCampaign = event => {
         event.preventDefault();
@@ -25,10 +29,11 @@ const AddNewCampaign = () => {
         const email = form.email.value;
 
         const newCampaign = { title, type, amount, deadline, description, image, name, email };
-        console.log(newCampaign);
+       console.log(newCampaign)
+
 
         //send data to the server
-        fetch('http://localhost:5000/campaign', {
+        fetch('https://crowd-fund-delta-nine.vercel.app/campaign', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -167,7 +172,7 @@ const AddNewCampaign = () => {
                 </div>
             </form>
                     </div> : 
-                    <div>{navigate('/login')}</div>
+                    <div><LottieAnimation/></div>
                 }
             </div>
 

@@ -1,22 +1,24 @@
+import { Link } from "react-router-dom";
 
 
 const CampaignCard = ({camp}) => {
 
-    //const { _id, title, type, amount, deadline, description, image, name, email } = campaign;
-   const { image, title, description } = camp || {};
+   const { _id, image, title, description } = camp || {};
     //console.log(title);
     return (
-            <div className="card-compact bg-base-100 w-96">
+            <div className="card-compact bg-base-100 w-80">
                 <figure>
                     <img
                         src={image}
-                        className="" />
+                        className="rounded-xl" />
                 </figure>
-                <div className="card-body">
+                <div className="card-body justify-center items-center">
                     <h2 className="card-title">{title}</h2>
                     <p>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">See more</button>
+                        <Link to={`/detail/${_id}`}>
+                        <button className="btn btn-accent btn-sm my-4">See more</button>
+                        </Link>
                     </div>
                 </div>
             </div>

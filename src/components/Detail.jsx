@@ -30,7 +30,7 @@ const Detail = () => {
         
         //console.log(donationData)
       
-        fetch('http://localhost:5000/donated', {
+        fetch('https://crowd-fund-delta-nine.vercel.app/donated', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
