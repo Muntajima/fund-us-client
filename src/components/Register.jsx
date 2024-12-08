@@ -142,7 +142,7 @@ const Register = () => {
                                     Login
                                 </Link>
                             </p>
-                            <Link onClick={handleGoogleSignup}  className='btn btn-outline bg-rose-700 text-white w-36 mx-auto my-8 font-semibold'> Google only</Link>
+                            <Link onClick={handleGoogleSignup}  className='btn btn-outline bg-rose-700 text-white w-32 mx-auto my-8 font-semibold'> Google only</Link>
                         </div>
                     </div>
                 </div>
