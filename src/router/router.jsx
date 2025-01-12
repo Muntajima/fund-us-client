@@ -12,6 +12,9 @@ import Update from "../components/Update";
 import Detail from "../components/Detail";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../components/Error";
+import About from "../pages/About";
+import Donate from "../pages/Donate";
+import ContactUs from "../pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +68,19 @@ const router = createBrowserRouter([
     </PrivateRoute>,
     loader: ({params}) => fetch(`https://crowd-fund-delta-nine.vercel.app/campaign/${params.id}`)
   },
+  {
+    path: 'about',
+    element: <About/>
+  },
+  {
+    path: 'donate',
+    element: <Donate/>
+  },
+  {
+    path: 'contact-us',
+    element: <ContactUs/>
+  },
+  
  
 ]);
 

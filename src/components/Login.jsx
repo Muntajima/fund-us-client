@@ -43,9 +43,9 @@ const Login = () => {
         })
     }
     return (
-        <div>
-            <div><Navbar /></div>
-            <div>
+        <div className='w-4/5 mx-auto'>
+            <Navbar />
+            <div className='pt-24'>
                 <div className="hero bg-rose-700">
                     <div className="hero-content flex-col lg:flex-row-reverse">
 

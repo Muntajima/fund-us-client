@@ -57,8 +57,8 @@ const AddNewCampaign = () => {
     return (
         <div className='w-4/5 mx-auto'>
             <div><Navbar /></div>
-            <h2 className='font-bold text-2xl text-center'>Add new campaign for your project</h2>
-            <p className='text-center mt-4 mb-12'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus voluptas aut ex eaque dolor delectus eveniet sit, magnam accusamus est.</p>
+            <h2 className='font-bold text-2xl text-center pt-24'>Add new campaign for your project</h2>
+            <p className='text-center mt-4 mb-12'>On January 1, 2025, many people were killed and injured on Bourbon Street in New Orleans, Louisiana. The GoFundMe community is coming together to support those affected. Donate to verified fundraisers today to help the people and families affected. Our Trust & Safety team will continue to update this page with more fundraisers as they are verified.</p>
 
             <div>
                 {

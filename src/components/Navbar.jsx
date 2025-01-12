@@ -17,12 +17,14 @@ const Navbar = () => {
   }, [theme])
 
   const links = <>
-    <div className='text-sm space-x-2'>
-      <NavLink to='/' className='hover:underline'>Home</NavLink>
-      <NavLink to='/all-campaign-card' className='hover:underline'>All Campaign</NavLink>
-      <NavLink to='/add-new-campaign' className='hover:underline'> Add New Campaign</NavLink>
+    <div className='text-sm mr-2'>
+      <NavLink to='/' className='hover:underline pr-2'>Home</NavLink>
+      <NavLink to='/all-campaign-card' className='hover:underline pr-2'>All Campaign</NavLink>
+      <NavLink to='/add-new-campaign' className='hover:underline pr-2'> Add New Campaign</NavLink>
+      <NavLink to='/donate' className='hover:underline pr-2'> Donate</NavLink>
+      <NavLink to='/about' className='hover:underline pr-2'> About Us</NavLink>
       {
-        users && <NavLink to='/my-campaign' className='hover:underline'>My Campaign</NavLink>
+        users && <NavLink to='/my-campaign' className='hover:underline pr-2'>My Campaign</NavLink>
       }
       {
         users && <NavLink to='/my-donation'className='hover:underline'>My Donation</NavLink>
@@ -34,7 +36,7 @@ const Navbar = () => {
 
   return (
 
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 fixed z-10 w-4/5 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +62,7 @@ const Navbar = () => {
         <img src={fundUsLogo} className='w-[60px]' />
         <a className="btn btn-ghost text-2xl font-bold">FundUs</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center mr-24 hidden lg:flex">
         <ul className="menu menu-horizontal">
           {links}
         </ul>
@@ -73,7 +75,7 @@ const Navbar = () => {
           className='w-10 h-10 rounded-full cursor-pointer'
           title={users?.displayName || "no display name"}
           />
-          <div className="absolute bottom-1 right-16 bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-1 right-12 bg-gray-800 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
                                 {users?.displayName || "No Display Name"}
                             </div>
           

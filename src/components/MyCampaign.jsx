@@ -57,10 +57,10 @@ const MyCampaign = () => {
 
    
     return (
-        <div>
+        <div className='w-4/5 mx-auto'>
             <div><Navbar /></div>
             <div className="py-20">
-            <table className="table-auto border-collapse border border-gray-300 w-full">
+            <table className="table-auto border-collapse border border-gray-300 lg:w-full">
                 <thead>
                     <tr>
                         <th className="border border-gray-300 px-4 py-2">Image</th>
@@ -73,7 +73,7 @@ const MyCampaign = () => {
                 <tbody>
                     {camps.map((campaign) => (
                         <tr key={campaign._id}>
-                            <td className="border border-gray-300 px-4 py-2"><img src={campaign.image} className="w-[200px]" /></td>
+                            <td className="border border-gray-300 px-4 py-2"><img src={campaign.image} className="lg:w-[200px]" /></td>
                             <td className="border border-gray-300 px-4 py-2">{campaign.title}</td>
                             <td className="border border-gray-300 px-4 py-2">{campaign.description}</td>
                             <td className="border border-gray-300 px-4 py-2">{campaign.amount}</td>

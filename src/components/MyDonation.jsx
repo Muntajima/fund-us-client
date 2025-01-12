@@ -18,13 +18,13 @@ const MyDonation = () => {
     }, [users])
 
     return (
-        <div>
+        <div className='w-4/5 mx-auto'>
             <div><Navbar /></div>
-            <div>
+            <div className='pt-24'>
                 {
                     camps.map(camp => (
                         <div className='flex flex-row justify-center mb-4'>
-                            <div className="card card-side bg-base-100">
+                            <div className="card lg:card-side bg-base-100">
                             <figure>
                                 <img
                                     src={camp.image}
@@ -46,7 +46,7 @@ const MyDonation = () => {
                     ))
                 }
             </div>
-            <div><Footer /></div>
+            <div className='pt-24'><Footer /></div>
         </div>
     );
 };

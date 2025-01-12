@@ -81,10 +81,10 @@ const Register = () => {
         
     }
     return (
-        <div>
+        <div className='w-4/5 mx-auto'>
             <div><Navbar /></div>
             <div>
-                <div className="hero bg-rose-700 min-h-screen">
+                <div className="hero bg-rose-700 min-h-screen pt-24">
                     <div className="hero-content flex-col lg:flex-row-reverse">
 
                         <div className="card bg-base-100">
