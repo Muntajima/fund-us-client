@@ -3,19 +3,7 @@
 
 ---
 
-## **Table of Contents**  
 
-1. [About the Project](#about-the-project)  
-2. [Features](#features)  
-3. [Tech Stack](#tech-stack)  
-4. [Installation and Setup](#installation-and-setup)  
-5. [Pages and Functionalities](#pages-and-functionalities)  
-6. [Key Highlights](#key-highlights)  
-7. [Future Improvements](#future-improvements)  
-8. [Contributing](#contributing)  
-9. [License](#license)  
-
----
 
 ## **About the Project**  
 
