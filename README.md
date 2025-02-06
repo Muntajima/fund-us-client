@@ -3,7 +3,7 @@
 
 ---
 ###
-<img src="https://i.ibb.co.com/qF0gY0f/Screenshot-2025-01-05-193120.png"/>
+<img align="center" src="https://i.ibb.co.com/qF0gY0f/Screenshot-2025-01-05-193120.png"/>
 
 
 ## **About the Project**  
